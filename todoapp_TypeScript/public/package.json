@@ -1,0 +1,42 @@
+{
+  "name": "todo-for-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.25",
+    "angular": "^1.7.9",
+    "angular-ui-router": "^1.0.25",
+    "bootstrap": "^4.4.1",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.15",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^1.11.1"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.57",
+    "@types/angular-mocks": "^1.7.0",
+    "@types/jquery": "^3.3.34",
+    "angular-ts-decorators": "^3.7.8",
+    "jquery": "^3.4.1",
+    "ng-annotate-webpack-plugin": "^0.3.0",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && webpack --bail --progress --profile",
+    "watch": "webpack --watch"
+  },
+  "keywords": [
+    "angularJS"
+  ],
+  "author": "Oleh Paryliak",
+  "license": "ISC"
+}

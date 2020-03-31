@@ -1,0 +1,43 @@
+
+<task-nav-bar></task-nav-bar>
+
+<!-- EDITING -->
+<ui-view class="m-2"></ui-view>
+
+
+<div class="container-fluid">
+    <table class="table table-striped">
+        <tr>
+            <td>
+                <button ui-sref="todo.task.edit({taskId:taskCtrl.task._id})" type ="button" class="btn btn-link"> <i class="fas fa-pen"></i>
+                </button>
+            </td>
+            <td width="40%">
+                {{taskCtrl.getT().definition}}
+            </td>
+            <td>
+                <span> {{taskCtrl.task.endDate| date:'dd/MM/yyyy'}}</span>
+            </td>
+            <td>
+                <!--            <p>Start: {{task.startDate| date:'dd/MM/yyyy @ h:mma'}}</p>-->
+                <span class="text-center">{{taskCtrl.task.resolved | checkmark}}</span>
+            </td>
+            <td ng-if="!taskCtrl.task.resolved">
+                <button type="button" class="btn btn-success" ng-click="taskCtrl.checkTask(taskCtrl.getT())">Resolved</button>
+            </td>
+            <td>
+                <button type="button" class="close" ng-click="taskCtrl.deleteTask(taskCtrl.task); "><i class="fas fa-times-circle"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <p>{{taskCtrl.getT().explanation}}</p>
+            </td>
+        </tr>
+    </table>
+
+
+</div >
+
+
+

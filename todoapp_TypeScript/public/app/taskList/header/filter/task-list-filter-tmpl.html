@@ -1,0 +1,7 @@
+<div class="container-fluid mb-2" >
+    <select class="form-control form-control-lg" ng-model="$ctrl.orderProp" ng-change="$ctrl.setOrderProp($ctrl.orderProp)">
+        <option value="endDate - Date.now()">Expired</option>
+        <option value="Date.now() - startDate">Newest</option>
+    </select>
+
+</div>
