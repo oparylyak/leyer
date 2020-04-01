@@ -2,45 +2,94 @@
 
 import * as angular from 'angular';
 
- function CreateTaskCtrl ($state, $stateParams, TasksModel) {
-     let createTaskCtrl = this;
+//----start-classify
 
-     function returnTaskList() {
-         $state.go('todo.taskList', {})
-     }
+let TaskCreateComponent = {
+    selector:"taskCreate", //<task-create>
+    templateUrl:'app/taskList/create/task-create.tmpl.html',
+    bindings:{},
+    controller: class TaskCreateController {
 
-     function cancelCreating() {
-         returnTaskList();
-     }
+        public newTask;
 
-     function createTask(task) {
-         if(task.definition){
-             TasksModel.createTask(task);
-             returnTaskList();
-         }else {
-             returnTaskList();
-         }
-     }
+        private $state;
+        private $stateParams;
+        private TasksModel;
 
-     function resetForm() {
-         createTaskCtrl.newTask = {
-             definition: '',
-             explanation: '',
-         }
+        constructor($state, $stateParams, TasksModel) {
+            this.$state = $state;
+            this.$stateParams = $stateParams;
+            this.TasksModel = TasksModel;
+            this.newTask = {
+                definition: '',
+                explanation: ''
+            };
+        }
 
-     }
+        returnTaskList() {
+            this.$state.go('todo.taskList', {})
+        }
 
-     createTaskCtrl.createTask = createTask;
-     createTaskCtrl.cancelCreating = cancelCreating;
+        cancelCreating() {
+            this.returnTaskList();
+        }
 
-     resetForm();
- }
+        createTask(task) {
+            if(task.definition){
+                this.TasksModel.createTask(task);
+                this.returnTaskList();
+            }else {
+                this.returnTaskList();
+            }
+        }
+    }
 
-//1 angular.module('taskList')
-angular.module('Todo')
-    .component('createTask',{
-        controller: CreateTaskCtrl,
-        controllerAs:'createTaskCtrl',
-        templateUrl:'app/taskList/create/task-create.tmpl.html',
-    })
-;
+};
+
+angular
+    .module('Todo')
+    .component(TaskCreateComponent.selector,TaskCreateComponent);
+
+//----end-classify
+
+//1  function CreateTaskCtrl ($state, $stateParams, TasksModel) {
+//      let createTaskCtrl = this;
+//
+//      function returnTaskList() {
+//          $state.go('todo.taskList', {})
+//      }
+//
+//      function cancelCreating() {
+//          returnTaskList();
+//      }
+//
+//      function createTask(task) {
+//          if(task.definition){
+//              TasksModel.createTask(task);
+//              returnTaskList();
+//          }else {
+//              returnTaskList();
+//          }
+//      }
+//
+//      function resetForm() {
+//          createTaskCtrl.newTask = {
+//              definition: '',
+//              explanation: '',
+//          }
+//
+//      }
+//
+//      createTaskCtrl.createTask = createTask;
+//      createTaskCtrl.cancelCreating = cancelCreating;
+//
+//      resetForm();
+//  }
+//
+// angular.module('Todo')
+//     .component('taskCreate',{
+//         controller: CreateTaskCtrl,
+//         controllerAs:'createTaskCtrl',
+//         templateUrl:'app/taskList/create/task-create.tmpl.html',
+//     })
+// ;

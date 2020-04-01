@@ -38,8 +38,8 @@ angular.module("Todo",[
                 component:'taskEdit',
             })
             .state('todo.taskList.create',{
-                url:'/createTask',
-                component:'createTask'
+                url:'/create',
+                component:'taskCreate'
             })
     }]);
 
