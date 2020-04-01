@@ -5,8 +5,8 @@ import * as _ from 'lodash'
 angular.module('Todo')
 
     .service('TasksModel',['$http','$q', function ($http, $q) {
-        let model = this,
-            tasks;
+        let model = this;
+        let tasks;
 
         function extract(result) {
             return result.data;
@@ -16,7 +16,6 @@ angular.module('Todo')
             tasks = extract(result);
             return tasks;
         }
-        // TaskById start----------------
 
         function findTask(taskId){
             console.log("findTask");
@@ -51,10 +50,10 @@ angular.module('Todo')
                 $http.get('taskList').then(function (response) {
                     console.log("Got Request", response.data);
                     deferred.resolve(cacheTasks(response));
-                    console.log(0,"TasksModel.getTasks", model.tasks);
+                    console.log(0,"TasksModel.getTasks", tasks);
                 });
             }
-            console.log(0,"TasksModel.getTasks", model.tasks);
+            console.log(0,0,"TasksModel.getTasks", tasks);
             return deferred.promise;
         };
 
@@ -71,7 +70,6 @@ angular.module('Todo')
         };
 
         model.deleteTask = function (task) {
-            // console.log("1delete", task.id);
             console.log("1delete", task._id);
             $http.delete('/taskList/'+ task._id).then(function (response) {
                 model.getTasks();

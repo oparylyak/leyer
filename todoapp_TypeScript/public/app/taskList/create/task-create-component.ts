@@ -2,8 +2,6 @@
 
 import * as angular from 'angular';
 
-//----start-classify
-
 let TaskCreateComponent = {
     selector:"taskCreate", //<task-create>
     templateUrl:'app/taskList/create/task-create.tmpl.html',
@@ -50,46 +48,4 @@ angular
     .module('Todo')
     .component(TaskCreateComponent.selector,TaskCreateComponent);
 
-//----end-classify
 
-//1  function CreateTaskCtrl ($state, $stateParams, TasksModel) {
-//      let createTaskCtrl = this;
-//
-//      function returnTaskList() {
-//          $state.go('todo.taskList', {})
-//      }
-//
-//      function cancelCreating() {
-//          returnTaskList();
-//      }
-//
-//      function createTask(task) {
-//          if(task.definition){
-//              TasksModel.createTask(task);
-//              returnTaskList();
-//          }else {
-//              returnTaskList();
-//          }
-//      }
-//
-//      function resetForm() {
-//          createTaskCtrl.newTask = {
-//              definition: '',
-//              explanation: '',
-//          }
-//
-//      }
-//
-//      createTaskCtrl.createTask = createTask;
-//      createTaskCtrl.cancelCreating = cancelCreating;
-//
-//      resetForm();
-//  }
-//
-// angular.module('Todo')
-//     .component('taskCreate',{
-//         controller: CreateTaskCtrl,
-//         controllerAs:'createTaskCtrl',
-//         templateUrl:'app/taskList/create/task-create.tmpl.html',
-//     })
-// ;
