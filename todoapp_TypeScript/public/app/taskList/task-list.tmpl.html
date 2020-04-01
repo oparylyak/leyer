@@ -7,7 +7,7 @@
 
     <div class="container-fluid">
         <table class="table table-striped">
-            <tr ng-class="{'active':isSelectedTask(task._id)}"  ng-repeat="task in taskListCtrl.tasks  | filter: taskListCtrl.getQ() | orderBy:taskListCtrl.getO()" >
+            <tr ng-class="{'active':isSelectedTask(task._id)}"  ng-repeat="task in $ctrl.tasks  | filter: $ctrl.getQ() | orderBy:$ctrl.getO()" >
                 <td>
                     <a ui-sref="todo.task({taskId:task._id})" ng-click=""> <span>{{task.definition}}</span></a>
                 </td>
@@ -22,7 +22,7 @@
                     <span class="text-center">{{task.resolved | checkmark }}</span>
                 </td>
                 <td>
-                    <button type="button" class="close" ng-click="taskListCtrl.deleteTask(task)"><i class="fas fa-times-circle"></i></button>
+                    <button type="button" class="close" ng-click="$ctrl.deleteTask(task)"><i class="fas fa-times-circle"></i></button>
                 </td>
             </tr>
 

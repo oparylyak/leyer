@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf7e1ad-6e81-4086-b722-e43f8738b0a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/task-app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task-app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/task/edit/task-edit-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/edit/task-edit-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/task/edit/task-edit.tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/edit/task-edit.tmpl.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/create/task-create-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/create/task-create-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/create/task-create.tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/create/task-create.tmpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/task/header/task-navbar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/header/task-navbar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/task/task-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/task-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/task/task.tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/task.tmpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/filter/task-list-filter-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/filter/task-list-filter-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/search/task-list-search-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/search/task-list-search-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/task-list-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/task-list-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/task-list.tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/task-list.tmpl.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +71,7 @@
       <workItem from="1585390683689" duration="5000" />
       <workItem from="1585556620095" duration="605000" />
       <workItem from="1585644027558" duration="1412000" />
-      <workItem from="1585724574828" duration="7054000" />
+      <workItem from="1585724574828" duration="14347000" />
     </task>
     <servers />
   </component>
