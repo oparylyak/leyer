@@ -1,6 +1,5 @@
 'use strict';
 
-import * as angular from 'angular';
 import {NgModule, platformBrowserDynamic} from 'angular-ts-decorators';
 import {TodoRouting} from "./task-app-routing";
 import {TaskListComponent} from "./taskList/task-list.component";
@@ -13,6 +12,7 @@ import {TaskListSearchComponent} from "./taskList/header/search/task-list-search
 import {TaskComponent} from "./task/task.component";
 import {ModifyTaskService} from "./task/task.component";
 import {TaskEditComponent} from "./task/edit/task-edit.component";
+import {TaskNavBarComponent} from "./task/header/task-navbar.component";
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import {TaskEditComponent} from "./task/edit/task-edit.component";
         TaskListOrderComponent,
         TaskListSearchComponent,
         TaskComponent,
-        TaskEditComponent
+        TaskEditComponent,
+        TaskNavBarComponent
     ],
     providers:[
         TaskListService,
@@ -40,8 +41,5 @@ export class Todo {
 }
 // platformBrowserDynamic().bootstrapModule(Todo);
 
-//1 angular.module("Todo",[
-//     "TodoRouting",
-// ]);
 
 

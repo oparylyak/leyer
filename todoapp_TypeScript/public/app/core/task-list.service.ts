@@ -1,5 +1,5 @@
 'use strict';
-import * as angular from 'angular';
+
 import * as _ from 'lodash'
 import {IHttpService, IPromise, IQService} from 'angular';
 import {Injectable} from "angular-ts-decorators";
@@ -9,7 +9,7 @@ export class TaskListService {
     private $http:IHttpService;
     private $q:IQService;
     private tasks;
-    /*@ngInject*/
+
     constructor($http,$q) {
         this.$http = $http;
         this.$q = $q;
@@ -102,7 +102,4 @@ export class TaskListService {
 
 }
 
-//1 angular
-//     .module('Todo')
-//     .service('TaskListService', TaskListService);
 

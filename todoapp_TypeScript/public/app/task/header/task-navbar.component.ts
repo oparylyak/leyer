@@ -1,13 +1,11 @@
 'use strict';
 
-import * as angular from 'angular';
+import {Component} from "angular-ts-decorators";
 
-let TaskNavBarComponent = {
+@Component({
     selector:'taskNavBar',
     templateUrl: 'app/task/header/task-navbar.tmpl.html',
-    bindings:{}
-}
+})
+export class TaskNavBarComponent {}
 
-angular
-    .module('Todo')
-    .component(TaskNavBarComponent.selector, TaskNavBarComponent);
+

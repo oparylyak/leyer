@@ -2,12 +2,10 @@ import 'angular';
 import 'angular-ui-router';
 import '@uirouter/core/';
 import 'lodash';
-// import '@uirouter/angularjs';
 
 //main
 import './task-app';
 import './task-app-routing.ts';
-import './task';
 
 //core
 import './core/task-list.service';
