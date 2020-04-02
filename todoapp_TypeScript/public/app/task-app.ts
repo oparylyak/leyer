@@ -10,6 +10,9 @@ import {SearchOrderService} from "./taskList/task-list.component";
 import {TaskListNavbarComponent} from "./taskList/header/navbar/task-list-navbar.component";
 import {TaskListOrderComponent} from "./taskList/header/order/task-list-order.component";
 import {TaskListSearchComponent} from "./taskList/header/search/task-list-search.component";
+import {TaskComponent} from "./task/task.component";
+import {ModifyTaskService} from "./task/task.component";
+import {TaskEditComponent} from "./task/edit/task-edit.component";
 
 
 @NgModule({
@@ -22,11 +25,14 @@ import {TaskListSearchComponent} from "./taskList/header/search/task-list-search
         TaskCreateComponent,
         TaskListNavbarComponent,
         TaskListOrderComponent,
-        TaskListSearchComponent
+        TaskListSearchComponent,
+        TaskComponent,
+        TaskEditComponent
     ],
     providers:[
+        TaskListService,
         SearchOrderService,
-        TaskListService
+        ModifyTaskService
     ]
 })
 

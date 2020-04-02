@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf7e1ad-6e81-4086-b722-e43f8738b0a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/task-app-routing.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/task.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/task-list.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/task-list.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/task-app-imports.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task-app-imports.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/task-app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task-app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/task/edit/task-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/edit/task-edit.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/task/task.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/task.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/create/task-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/create/task-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar.tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar.tmpl.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/header/order/task-list-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/order/task-list-order.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/header/search/task-list-search.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/search/task-list-search.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/task-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/task-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/task-list.tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/task-list.tmpl.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +68,7 @@
       <workItem from="1585644027558" duration="1412000" />
       <workItem from="1585724574828" duration="17252000" />
       <workItem from="1585807515093" duration="9474000" />
-      <workItem from="1585817367028" duration="17800000" />
+      <workItem from="1585817367028" duration="19941000" />
     </task>
     <servers />
   </component>
