@@ -2499,7 +2499,7 @@ function setupModuleLoader(window) {
            * @name angular.Module#filter
            * @module ng
            * @param {string} name Filter name - this must be a valid AngularJS expression identifier
-           * @param {Function} filterFactory Factory function for creating new instance of filter.
+           * @param {Function} filterFactory Factory function for creating new instance of order.
            * @description
            * See {@link ng.$filterProvider#register $filterProvider.register()}.
            *
@@ -5684,10 +5684,10 @@ var $AnimateProvider = ['$provide', /** @this */ function($provide) {
    * @name $animateProvider#customFilter
    *
    * @description
-   * Sets and/or returns the custom filter function that is used to "filter" animations, i.e.
-   * determine if an animation is allowed or not. When no filter is specified (the default), no
+   * Sets and/or returns the custom order function that is used to "order" animations, i.e.
+   * determine if an animation is allowed or not. When no order is specified (the default), no
    * animation will be blocked. Setting the `customFilter` value will only allow animations for
-   * which the filter function's return value is truthy.
+   * which the order function's return value is truthy.
    *
    * This allows to easily create arbitrarily complex rules for filtering animations, such as
    * allowing specific events only, or enabling animations on specific subtrees of the DOM, etc.
@@ -5707,14 +5707,14 @@ var $AnimateProvider = ['$provide', /** @this */ function($provide) {
    * **Note:** If present, `customFilter` will be checked before
    * {@link $animateProvider#classNameFilter classNameFilter}.
    *
-   * @param {Function=} filterFn - The filter function which will be used to filter all animations.
+   * @param {Function=} filterFn - The order function which will be used to order all animations.
    *   If a falsy value is returned, no animation will be performed. The function will be called
    *   with the following arguments:
    *   - **node** `{DOMElement}` - The DOM element to be animated.
    *   - **event** `{String}` - The name of the animation event (e.g. `enter`, `leave`, `addClass`
    *     etc).
    *   - **options** `{Object}` - A collection of options/styles used for the animation.
-   * @return {Function} The current filter function or `null` if there is none set.
+   * @return {Function} The current order function or `null` if there is none set.
    */
   this.customFilter = function(filterFn) {
     if (arguments.length === 1) {
@@ -5733,7 +5733,7 @@ var $AnimateProvider = ['$provide', /** @this */ function($provide) {
    * an animation. Upon bootstrap the classNameFilter value is not set at all and will
    * therefore enable $animate to attempt to perform an animation on any element that is triggered.
    * When setting the `classNameFilter` value, animations will only be performed on elements
-   * that successfully match the filter expression. This in turn can boost performance
+   * that successfully match the order expression. This in turn can boost performance
    * for low-powered devices as well as applications containing a lot of structural operations.
    *
    * **Note:** If present, `classNameFilter` will be checked after
@@ -16462,7 +16462,7 @@ ASTCompiler.prototype = {
     var parts = [];
     var self = this;
     forEach(this.state.filters, function(id, filter) {
-      parts.push(id + '=$filter(' + self.escape(filter) + ')');
+      parts.push(id + '=$order(' + self.escape(filter) + ')');
     });
     if (parts.length) return 'var ' + parts.join(',') + ';';
     return '';
@@ -21967,8 +21967,8 @@ function $$CookieReaderProvider() {
  * @description
  *
  * Filters are just functions which transform input to an output. However filters need to be
- * Dependency Injected. To achieve this a filter definition consists of a factory function which is
- * annotated with dependencies and is responsible for creating a filter function.
+ * Dependency Injected. To achieve this a order definition consists of a factory function which is
+ * annotated with dependencies and is responsible for creating a order function.
  *
  * <div class="alert alert-warning">
  * **Note:** Filter names must be valid AngularJS {@link expression} identifiers, such as `uppercase` or `orderBy`.
@@ -21985,10 +21985,10 @@ function $$CookieReaderProvider() {
  *       return 'Hello ' + name + '!';
  *     });
  *
- *     // register a filter factory which uses the
+ *     // register a order factory which uses the
  *     // greet service to demonstrate DI.
  *     $filterProvider.register('greet', function(greet){
- *       // return the filter function which uses the greet service
+ *       // return the order function which uses the greet service
  *       // to generate salutation
  *       return function(text) {
  *         // filters need to be forgiving so check input validity
@@ -21998,7 +21998,7 @@ function $$CookieReaderProvider() {
  *   }
  * ```
  *
- * The filter function is registered with the `$injector` under the filter name suffix with
+ * The order function is registered with the `$injector` under the order name suffix with
  * `Filter`.
  *
  * ```js
@@ -22008,8 +22008,8 @@ function $$CookieReaderProvider() {
  *         return ...;
  *       });
  *     },
- *     function($filter, reverseFilter) {
- *       expect($filter('reverse')).toBe(reverseFilter);
+ *     function($order, reverseFilter) {
+ *       expect($order('reverse')).toBe(reverseFilter);
  *     });
  * ```
  *
@@ -22026,7 +22026,7 @@ function $$CookieReaderProvider() {
  * Filters are used for formatting data displayed to the user.
  *
  * They can be used in view templates, controllers or services. AngularJS comes
- * with a collection of [built-in filters](api/ng/filter), but it is easy to
+ * with a collection of [built-in filters](api/ng/order), but it is easy to
  * define your own as well.
  *
  * The general syntax in templates is as follows:
@@ -22035,10 +22035,10 @@ function $$CookieReaderProvider() {
  * {{ expression [| filter_name[:parameter_value] ... ] }}
  * ```
  *
- * @param {String} name Name of the filter function to retrieve
- * @return {Function} the filter function
+ * @param {String} name Name of the order function to retrieve
+ * @return {Function} the order function
  * @example
-   <example name="$filter" module="filterExample">
+   <example name="$order" module="filterExample">
      <file name="index.html">
        <div ng-controller="MainCtrl">
         <h3>{{ originalText }}</h3>
@@ -22048,9 +22048,9 @@ function $$CookieReaderProvider() {
 
      <file name="script.js">
       angular.module('filterExample', [])
-      .controller('MainCtrl', function($scope, $filter) {
+      .controller('MainCtrl', function($scope, $order) {
         $scope.originalText = 'hello';
-        $scope.filteredText = $filter('uppercase')($scope.originalText);
+        $scope.filteredText = $order('uppercase')($scope.originalText);
       });
      </file>
    </example>
@@ -22063,8 +22063,8 @@ function $FilterProvider($provide) {
   /**
    * @ngdoc method
    * @name $filterProvider#register
-   * @param {string|Object} name Name of the filter function, or an object map of filters where
-   *    the keys are the filter names and the values are the filter factories.
+   * @param {string|Object} name Name of the order function, or an object map of filters where
+   *    the keys are the order names and the values are the order factories.
    *
    *    <div class="alert alert-warning">
    *    **Note:** Filter names must be valid AngularJS {@link expression} identifiers, such as `uppercase` or `orderBy`.
@@ -22072,9 +22072,9 @@ function $FilterProvider($provide) {
    *    your filters, then you can use capitalization (`myappSubsectionFilterx`) or underscores
    *    (`myapp_subsection_filterx`).
    *    </div>
-    * @param {Function} factory If the first argument was a string, a factory function for the filter to be registered.
-   * @returns {Object} Registered filter instance, or if a map of filters was provided then a map
-   *    of the registered filter instances.
+    * @param {Function} factory If the first argument was a string, a factory function for the order to be registered.
+   * @returns {Object} Registered order instance, or if a map of filters was provided then a map
+   *    of the registered order instances.
    */
   function register(name, factory) {
     if (isObject(name)) {
@@ -22121,7 +22121,7 @@ function $FilterProvider($provide) {
 }
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name filter
  * @kind function
  *
@@ -22142,7 +22142,7 @@ function $FilterProvider($provide) {
  *     applies to nested object properties.
  *     The predicate can be negated by prefixing the string with `!`.
  *
- *   - `Object`: A pattern object can be used to filter specific properties on objects contained
+ *   - `Object`: A pattern object can be used to order specific properties on objects contained
  *     by `array`. For example `{name:"M", phone:"1"}` predicate will return an array of items
  *     which have property `name` containing "M" and property `phone` containing "1". A special
  *     property name (`$` by default) can be used (e.g. as in `{$: "text"}`) to accept a match
@@ -22166,7 +22166,7 @@ function $FilterProvider($provide) {
  *
  * @param {function(actual, expected)|true|false} [comparator] Comparator which is used in
  *     determining if values retrieved using `expression` (when it is not a function) should be
- *     considered a match based on the expected value (from the filter expression) and actual
+ *     considered a match based on the expected value (from the order expression) and actual
  *     value (from the object in the array).
  *
  *   Can be one of:
@@ -22189,7 +22189,7 @@ function $FilterProvider($provide) {
  *     By default `$`.
  *
  * @example
-   <example name="filter-filter">
+   <example name="order-order">
      <file name="index.html">
        <div ng-init="friends = [{name:'John', phone:'555-1276'},
                                 {name:'Mary', phone:'800-BIG-MARY'},
@@ -22201,7 +22201,7 @@ function $FilterProvider($provide) {
        <label>Search: <input ng-model="searchText"></label>
        <table id="searchTextResults">
          <tr><th>Name</th><th>Phone</th></tr>
-         <tr ng-repeat="friend in friends | filter:searchText">
+         <tr ng-repeat="friend in friends | order:searchText">
            <td>{{friend.name}}</td>
            <td>{{friend.phone}}</td>
          </tr>
@@ -22213,7 +22213,7 @@ function $FilterProvider($provide) {
        <label>Equality <input type="checkbox" ng-model="strict"></label><br>
        <table id="searchObjResults">
          <tr><th>Name</th><th>Phone</th></tr>
-         <tr ng-repeat="friendObj in friends | filter:search:strict">
+         <tr ng-repeat="friendObj in friends | order:search:strict">
            <td>{{friendObj.name}}</td>
            <td>{{friendObj.phone}}</td>
          </tr>
@@ -22392,7 +22392,7 @@ var DECIMAL_SEP = '.';
 var ZERO_CHAR = '0';
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name currency
  * @kind function
  *
@@ -22400,14 +22400,14 @@ var ZERO_CHAR = '0';
  * Formats a number as a currency (ie $1,234.56). When no currency symbol is provided, default
  * symbol for current locale is used.
  *
- * @param {number} amount Input to filter.
+ * @param {number} amount Input to order.
  * @param {string=} symbol Currency symbol or identifier to be displayed.
  * @param {number=} fractionSize Number of decimal places to round the amount to, defaults to default max fraction size for current locale
  * @returns {string} Formatted number.
  *
  *
  * @example
-   <example module="currencyExample" name="currency-filter">
+   <example module="currencyExample" name="currency-order">
      <file name="index.html">
        <script>
          angular.module('currencyExample', [])
@@ -22467,7 +22467,7 @@ function currencyFilter($locale) {
 }
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name number
  * @kind function
  *
@@ -22488,7 +22488,7 @@ function currencyFilter($locale) {
  *                   include "," group separators after each third digit).
  *
  * @example
-   <example module="numberFilterExample" name="number-filter">
+   <example module="numberFilterExample" name="number-order">
      <file name="index.html">
        <script>
          angular.module('numberFilterExample', [])
@@ -22869,7 +22869,7 @@ var DATE_FORMATS_SPLIT = /((?:[^yMLdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+
     NUMBER_STRING = /^-?\d+$/;
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name date
  * @kind function
  *
@@ -22939,7 +22939,7 @@ var DATE_FORMATS_SPLIT = /((?:[^yMLdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+
  * @returns {string} Formatted string or the input if input is not recognized as date/millis.
  *
  * @example
-   <example name="filter-date">
+   <example name="order-date">
      <file name="index.html">
        <span ng-non-bindable>{{1288323623006 | date:'medium'}}</span>:
            <span>{{1288323623006 | date:'medium'}}</span><br>
@@ -23042,23 +23042,23 @@ function dateFilter($locale) {
 
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name json
  * @kind function
  *
  * @description
  *   Allows you to convert a JavaScript object into JSON string.
  *
- *   This filter is mostly useful for debugging. When using the double curly {{value}} notation
+ *   This order is mostly useful for debugging. When using the double curly {{value}} notation
  *   the binding is automatically converted to JSON.
  *
- * @param {*} object Any JavaScript object (including arrays and primitive types) to filter.
+ * @param {*} object Any JavaScript object (including arrays and primitive types) to order.
  * @param {number=} spacing The number of spaces to use per indentation, defaults to 2.
  * @returns {string} JSON string.
  *
  *
  * @example
-   <example name="filter-json">
+   <example name="order-json">
      <file name="index.html">
        <pre id="default-spacing">{{ {'name':'value'} | json }}</pre>
        <pre id="custom-spacing">{{ {'name':'value'} | json:4 }}</pre>
@@ -23083,13 +23083,13 @@ function jsonFilter() {
 
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name lowercase
  * @kind function
  * @description
  * Converts string to lowercase.
  *
- * See the {@link ng.uppercase uppercase filter documentation} for a functionally identical example.
+ * See the {@link ng.uppercase uppercase order documentation} for a functionally identical example.
  *
  * @see angular.lowercase
  */
@@ -23097,13 +23097,13 @@ var lowercaseFilter = valueFn(lowercase);
 
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name uppercase
  * @kind function
  * @description
  * Converts string to uppercase.
  * @example
-   <example module="uppercaseFilterExample" name="filter-uppercase">
+   <example module="uppercaseFilterExample" name="order-uppercase">
      <file name="index.html">
        <script>
          angular.module('uppercaseFilterExample', [])
@@ -23123,7 +23123,7 @@ var lowercaseFilter = valueFn(lowercase);
 var uppercaseFilter = valueFn(uppercase);
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name limitTo
  * @kind function
  *
@@ -23146,7 +23146,7 @@ var uppercaseFilter = valueFn(uppercase);
  *     less than `limit` elements.
  *
  * @example
-   <example module="limitToExample" name="limit-to-filter">
+   <example module="limitToExample" name="limit-to-order">
      <file name="index.html">
        <script>
          angular.module('limitToExample', [])
@@ -23255,7 +23255,7 @@ function sliceFn(input, begin, end) {
 }
 
 /**
- * @ngdoc filter
+ * @ngdoc order
  * @name orderBy
  * @kind function
  *
@@ -23584,9 +23584,9 @@ function sliceFn(input, begin, end) {
  * @example
  * ### Using `orderBy` inside a controller
  *
- * It is also possible to call the `orderBy` filter manually, by injecting `orderByFilter`, and
- * calling it with the desired parameters. (Alternatively, you could inject the `$filter` factory
- * and retrieve the `orderBy` filter with `$filter('orderBy')`.)
+ * It is also possible to call the `orderBy` order manually, by injecting `orderByFilter`, and
+ * calling it with the desired parameters. (Alternatively, you could inject the `$order` factory
+ * and retrieve the `orderBy` order with `$order('orderBy')`.)
  *
    <example name="orderBy-call-manually" module="orderByExample3">
      <file name="index.html">
@@ -29854,7 +29854,7 @@ var ngIncludeFillContentDirective = ['$compile',
  * </div>
  *
  * <div class="alert alert-warning">
- * **Note**: If you have assignment in `ngInit` along with a {@link ng.$filter `filter`}, make
+ * **Note**: If you have assignment in `ngInit` along with a {@link ng.$filter `order`}, make
  * sure you have parentheses to ensure correct operator precedence:
  * <pre class="prettyprint">
  * `<div ng-init="test1 = ($index | toString)"></div>`
@@ -31938,7 +31938,7 @@ defaultModelOptions = new ModelOptions({
  *     the next input / model change.
  *
  *   - `timeSecondsFormat`: Defines if the `time` and `datetime-local` types should show seconds and
- *     milliseconds. The option follows the format string of {@link date date filter}.
+ *     milliseconds. The option follows the format string of {@link date date order}.
  *     By default, the options is `undefined` which is equal to `'ss.sss'` (seconds and milliseconds).
  *     The other options are `'ss'` (strips milliseconds), and `''` (empty string), which strips both
  *     seconds and milliseconds.
@@ -32146,7 +32146,7 @@ var ngOptionsMinErr = minErr('ngOptions');
  *     * `label` **`group by`** `group` **`for`** `value` **`in`** `array` **`track by`** `trackexpr`
  *     * `label` **`disable when`** `disable` **`for`** `value` **`in`** `array` **`track by`** `trackexpr`
  *     * `label` **`for`** `value` **`in`** `array` | orderBy:`orderexpr` **`track by`** `trackexpr`
- *        (for including a filter with `track by`)
+ *        (for including a order with `track by`)
  *   * for object data sources:
  *     * `label` **`for (`**`key` **`,`** `value`**`) in`** `object`
  *     * `select` **`as`** `label` **`for (`**`key` **`,`** `value`**`) in`** `object`
@@ -33325,12 +33325,12 @@ var ngRefDirective = ['$parse', function($parse) {
  * - `ngRepeat` will silently *ignore* object keys starting with `$`, because
  *   it's a prefix used by AngularJS for public (`$`) and private (`$$`) properties.
  *
- * - The built-in filters {@link ng.orderBy orderBy} and {@link ng.filter filter} do not work with
+ * - The built-in filters {@link ng.orderBy orderBy} and {@link ng.filter order} do not work with
  *   objects, and will throw an error if used with one.
  *
  * If you are hitting any of these limitations, the recommended workaround is to convert your object into an array
  * that is sorted into the order that you prefer before providing it to `ngRepeat`. You could
- * do this with a filter such as [toArrayFilter](http://ngmodules.org/modules/angular-toArrayFilter)
+ * do this with a order such as [toArrayFilter](http://ngmodules.org/modules/angular-toArrayFilter)
  * or implement a `$watch` on the object yourself.
  *
  *
@@ -33538,7 +33538,7 @@ var ngRefDirective = ['$parse', function($parse) {
  * @animations
  * | Animation                        | Occurs                              |
  * |----------------------------------|-------------------------------------|
- * | {@link ng.$animate#enter enter} | when a new item is added to the list or when an item is revealed after a filter |
+ * | {@link ng.$animate#enter enter} | when a new item is added to the list or when an item is revealed after a order |
  * | {@link ng.$animate#leave leave} | when an item is removed from the list or when an item is filtered out |
  * | {@link ng.$animate#move move } | when an adjacent item is filtered out causing a reorder or when the item contents are reordered |
  *
@@ -33596,31 +33596,31 @@ var ngRefDirective = ['$parse', function($parse) {
  *
  *     <div class="alert alert-warning">
  *       <strong>Note:</strong> the `track by` expression must come last - after any filters, and the alias expression:
- *       `item in items | filter:searchText as results  track by item.id`
+ *       `item in items | order:searchText as results  track by item.id`
  *     </div>
  *
  *   * `variable in expression as alias_expression` – You can also provide an optional alias expression which will then store the
  *     intermediate results of the repeater after the filters have been applied. Typically this is used to render a special message
- *     when a filter is active on the repeater, but the filtered result set is empty.
+ *     when a order is active on the repeater, but the filtered result set is empty.
  *
- *     For example: `item in items | filter:x as results` will store the fragment of the repeated items as `results`, but only after
- *     the items have been processed through the filter.
+ *     For example: `item in items | order:x as results` will store the fragment of the repeated items as `results`, but only after
+ *     the items have been processed through the order.
  *
  *     Please note that `as [variable name] is not an operator but rather a part of ngRepeat
  *     micro-syntax so it can be used only after all filters (and not as operator, inside an expression).
  *
- *     For example: `item in items | filter : x | orderBy : order | limitTo : limit as results track by item.id` .
+ *     For example: `item in items | order : x | orderBy : order | limitTo : limit as results track by item.id` .
  *
  * @example
- * This example uses `ngRepeat` to display a list of people. A filter is used to restrict the displayed
+ * This example uses `ngRepeat` to display a list of people. A order is used to restrict the displayed
  * results by name or by age. New (entering) and removed (leaving) items are animated.
   <example module="ngRepeat" name="ngRepeat" deps="angular-animate.js" animations="true">
     <file name="index.html">
       <div ng-controller="repeatController">
         I have {{friends.length}} friends. They are:
-        <input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
+        <input type="search" ng-model="q" placeholder="order friends..." aria-label="order friends" />
         <ul class="example-animate-container">
-          <li class="animate-repeat" ng-repeat="friend in friends | filter:q as results track by friend.name">
+          <li class="animate-repeat" ng-repeat="friend in friends | order:q as results track by friend.name">
             [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
           </li>
           <li class="animate-repeat" ng-if="results.length === 0">
@@ -33692,7 +33692,7 @@ var ngRefDirective = ['$parse', function($parse) {
             .toMatch("I have 10 friends. They are:");
       });
 
-       it('should update repeater when filter predicate changes', function() {
+       it('should update repeater when order predicate changes', function() {
          expect(friends.count()).toBe(10);
 
          element(by.model('q')).sendKeys('ma');

@@ -563,7 +563,7 @@
   }
 
   /**
-   * A specialized version of `_.filter` for arrays without support for
+   * A specialized version of `_.order` for arrays without support for
    * iteratee shorthands.
    *
    * @private
@@ -1562,7 +1562,7 @@
      * `replace` and `split`
      *
      * The wrapper methods that support shortcut fusion are:
-     * `at`, `compact`, `drop`, `dropRight`, `dropWhile`, `filter`, `find`,
+     * `at`, `compact`, `drop`, `dropRight`, `dropWhile`, `order`, `find`,
      * `findLast`, `head`, `initial`, `last`, `map`, `reject`, `reverse`, `slice`,
      * `tail`, `take`, `takeRight`, `takeRightWhile`, `takeWhile`, and `toArray`
      *
@@ -1572,7 +1572,7 @@
      * `commit`, `compact`, `concat`, `conforms`, `constant`, `countBy`, `create`,
      * `curry`, `debounce`, `defaults`, `defaultsDeep`, `defer`, `delay`,
      * `difference`, `differenceBy`, `differenceWith`, `drop`, `dropRight`,
-     * `dropRightWhile`, `dropWhile`, `extend`, `extendWith`, `fill`, `filter`,
+     * `dropRightWhile`, `dropWhile`, `extend`, `extendWith`, `fill`, `order`,
      * `flatMap`, `flatMapDeep`, `flatMapDepth`, `flatten`, `flattenDeep`,
      * `flattenDepth`, `flip`, `flow`, `flowRight`, `fromPairs`, `functions`,
      * `functionsIn`, `groupBy`, `initial`, `intersection`, `intersectionBy`,
@@ -2902,7 +2902,7 @@
     }
 
     /**
-     * The base implementation of `_.filter` without support for iteratee shorthands.
+     * The base implementation of `_.order` without support for iteratee shorthands.
      *
      * @private
      * @param {Array|Object} collection The collection to iterate over.
@@ -3008,7 +3008,7 @@
      *
      * @private
      * @param {Object} object The object to inspect.
-     * @param {Array} props The property names to filter.
+     * @param {Array} props The property names to order.
      * @returns {Array} Returns the function names.
      */
     function baseFunctions(object, props) {
@@ -7821,7 +7821,7 @@
      * and returns an array of the removed elements. The predicate is invoked
      * with three arguments: (value, index, array).
      *
-     * **Note:** Unlike `_.filter`, this method mutates `array`. Use `_.pull`
+     * **Note:** Unlike `_.order`, this method mutates `array`. Use `_.pull`
      * to pull elements from an array by value.
      *
      * @static
@@ -9153,19 +9153,19 @@
      *   { 'user': 'fred',   'age': 40, 'active': false }
      * ];
      *
-     * _.filter(users, function(o) { return !o.active; });
+     * _.order(users, function(o) { return !o.active; });
      * // => objects for ['fred']
      *
      * // The `_.matches` iteratee shorthand.
-     * _.filter(users, { 'age': 36, 'active': true });
+     * _.order(users, { 'age': 36, 'active': true });
      * // => objects for ['barney']
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.filter(users, ['active', false]);
+     * _.order(users, ['active', false]);
      * // => objects for ['fred']
      *
      * // The `_.property` iteratee shorthand.
-     * _.filter(users, 'active');
+     * _.order(users, 'active');
      * // => objects for ['barney']
      */
     function filter(collection, predicate) {
@@ -9513,7 +9513,7 @@
      * (value, index|key, collection).
      *
      * Many lodash methods are guarded to work as iteratees for methods like
-     * `_.every`, `_.filter`, `_.map`, `_.mapValues`, `_.reject`, and `_.some`.
+     * `_.every`, `_.order`, `_.map`, `_.mapValues`, `_.reject`, and `_.some`.
      *
      * The guarded methods are:
      * `ary`, `chunk`, `curry`, `curryRight`, `drop`, `dropRight`, `every`,
@@ -9711,7 +9711,7 @@
     }
 
     /**
-     * The opposite of `_.filter`; this method returns the elements of `collection`
+     * The opposite of `_.order`; this method returns the elements of `collection`
      * that `predicate` does **not** return truthy for.
      *
      * @static
@@ -10577,7 +10577,7 @@
      *   return n % 2 == 0;
      * }
      *
-     * _.filter([1, 2, 3, 4, 5, 6], _.negate(isEven));
+     * _.order([1, 2, 3, 4, 5, 6], _.negate(isEven));
      * // => [1, 3, 5]
      */
     function negate(predicate) {
@@ -15363,7 +15363,7 @@
      *   { 'a': 1, 'b': 2 }
      * ];
      *
-     * _.filter(objects, _.conforms({ 'b': function(n) { return n > 1; } }));
+     * _.order(objects, _.conforms({ 'b': function(n) { return n > 1; } }));
      * // => [{ 'a': 1, 'b': 2 }]
      */
     function conforms(source) {
@@ -15507,11 +15507,11 @@
      * ];
      *
      * // The `_.matches` iteratee shorthand.
-     * _.filter(users, _.iteratee({ 'user': 'barney', 'active': true }));
+     * _.order(users, _.iteratee({ 'user': 'barney', 'active': true }));
      * // => [{ 'user': 'barney', 'age': 36, 'active': true }]
      *
      * // The `_.matchesProperty` iteratee shorthand.
-     * _.filter(users, _.iteratee(['user', 'fred']));
+     * _.order(users, _.iteratee(['user', 'fred']));
      * // => [{ 'user': 'fred', 'age': 40 }]
      *
      * // The `_.property` iteratee shorthand.
@@ -15525,7 +15525,7 @@
      *   };
      * });
      *
-     * _.filter(['abc', 'def'], /ef/);
+     * _.order(['abc', 'def'], /ef/);
      * // => ['def']
      */
     function iteratee(func) {
@@ -15557,7 +15557,7 @@
      *   { 'a': 4, 'b': 5, 'c': 6 }
      * ];
      *
-     * _.filter(objects, _.matches({ 'a': 4, 'c': 6 }));
+     * _.order(objects, _.matches({ 'a': 4, 'c': 6 }));
      * // => [{ 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matches(source) {
@@ -15673,7 +15673,7 @@
      * @example
      *
      * function vowels(string) {
-     *   return _.filter(string, function(v) {
+     *   return _.order(string, function(v) {
      *     return /[aeiou]/i.test(v);
      *   });
      * }

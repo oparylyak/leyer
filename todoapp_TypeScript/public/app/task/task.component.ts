@@ -9,23 +9,21 @@ let TaskComponent = {
     controller: class TaskController {
 
         public task;
-        // // public taskResolved;
 
         private $state;
         private $stateParams;
-        private TasksModel;
-        private modifyTask;
-        // private task;
+        private TaskListService;
+        private ModifyTaskService;
 
-        constructor($state, $stateParams, TasksModel, modifyTask) {
+        constructor($state, $stateParams, TaskListService, ModifyTaskService) {
             this.$state = $state;
             this.$stateParams = $stateParams;
-            this.TasksModel = TasksModel;
-            this.modifyTask = modifyTask;
+            this.TaskListService = TaskListService;
+            this.ModifyTaskService = ModifyTaskService;
 
             console.log(1, '-+-+-+-+-+taskCtrl START');
 
-            TasksModel.getTasksById($stateParams.taskId)
+            TaskListService.getTasksById($stateParams.taskId)
                 .then((task)=>{
                     if(task){
                         this.task = task;
@@ -44,7 +42,7 @@ let TaskComponent = {
         }
 
         deleteTask(task){
-            this.TasksModel.deleteTask(task);
+            this.TaskListService.deleteTask(task);
             this.returnToTaskList();
         }
 
@@ -54,7 +52,7 @@ let TaskComponent = {
                 taskResolved.resolved = !taskResolved.resolved;
                 console.log(4, "resolvedTask", taskResolved);
                 this.task = taskResolved;
-                this.TasksModel.updateTask(taskResolved);
+                this.TaskListService.updateTask(taskResolved);
             } else {
                 console.log('task already resolve');
             }
@@ -62,27 +60,46 @@ let TaskComponent = {
 
         setT(task) {
             console.log(5,'set T', task)
-            return this.modifyTask.setTask(task);
+            return this.ModifyTaskService.setTask(task);
         }
 
         getT() {
-            return this.modifyTask.getTask();
+            return this.ModifyTaskService.getTask();
         }
 
     }
 };
 
+export class ModifyTaskService {
+
+    private modTask;
+
+    setTask(task) {
+        return this.modTask = task;
+    }
+
+    getTask() {
+        return this.modTask;
+    }
+
+}
+
 angular
     .module('Todo')
     .component(TaskComponent.selector,TaskComponent)
-    .service('modifyTask', function () {
-        let modTask;
+    .service('ModifyTaskService', ModifyTaskService);
 
-        this.setTask = function (task) {
-            return modTask = task;
-        }
-
-        this.getTask = function () {
-            return modTask;
-        }
-    });
+//1 angular
+//     .module('Todo')
+//     .component(TaskComponent.selector,TaskComponent)
+//     .service('ModifyTaskService', function () {
+//         let modTask;
+//
+//         this.setTask = function (task) {
+//             return modTask = task;
+//         }
+//
+//         this.getTask = function () {
+//             return modTask;
+//         }
+//     });

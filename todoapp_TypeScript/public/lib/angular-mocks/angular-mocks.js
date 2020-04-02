@@ -1459,7 +1459,7 @@ angular.mock.dump = function(object) {
 
         // query for last names '/v1/users?q=Archer'
         if (params.q) {
-          userList = $filter('filter')({lastName: params.q});
+          userList = $order('order')({lastName: params.q});
         }
 
         pages = Math.ceil(userList.length / pagingLength);
@@ -1471,7 +1471,7 @@ angular.mock.dump = function(object) {
           previous: isPrevious,
           next:     isNext,
           // sort field -> '/v1/users?sortBy=firstName'
-          results:  $filter('orderBy')(userList, params.sortBy || defaultSort)
+          results:  $order('orderBy')(userList, params.sortBy || defaultSort)
                       .splice((params.page - 1) * pagingLength, pagingLength)
         }];
       });

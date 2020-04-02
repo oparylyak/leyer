@@ -12,21 +12,23 @@ let TaskEditComponent ={
 
         private $state;
         private $stateParams;
-        private TasksModel;
-        private modifyTask;
+        private TaskListService;
+        private ModifyTaskService;
         private task;
 
-        constructor($state, $stateParams, TasksModel, modifyTask) {
+        constructor($state, $stateParams, TaskListService, ModifyTaskService) {
             this.$state = $state;
             this.$stateParams = $stateParams;
-            this.TasksModel = TasksModel;
-            this.modifyTask = modifyTask;
+            this.TaskListService = TaskListService;
+            this.ModifyTaskService = ModifyTaskService;
 
-            TasksModel.getTasksById($stateParams.taskId)
+            TaskListService.getTasksById($stateParams.taskId)
                 .then((task)=>{
+                    console.log(7,"task: ", task);
                     if(task){
                         this.task = task;
-                        this.editedTask = angular.copy(this.task);
+                        this.editedTask = angular.copy(task);
+                        console.log(8,"EditedTask: ", this.editedTask);
 
                     } else {
                         this.returnToTask();
@@ -48,7 +50,7 @@ let TaskEditComponent ={
             console.log(this.task.definition);
             this.task = angular.copy(this.editedTask);
             console.log(this.task.definition);
-            this.TasksModel.updateTask(this.editedTask);
+            this.TaskListService.updateTask(this.editedTask);
 
             this.setT();
 
@@ -56,7 +58,7 @@ let TaskEditComponent ={
         }
 
         setT(){
-            this.modifyTask.setTask(this.editedTask);
+            this.ModifyTaskService.setTask(this.editedTask);
             console.log(6,'task from edited', this.editedTask)
         }
 

@@ -12,12 +12,12 @@ let TaskCreateComponent = {
 
         private $state;
         private $stateParams;
-        private TasksModel;
+        private TaskListService;
 
-        constructor($state, $stateParams, TasksModel) {
+        constructor($state, $stateParams, TaskListService) {
             this.$state = $state;
             this.$stateParams = $stateParams;
-            this.TasksModel = TasksModel;
+            this.TaskListService = TaskListService;
             this.newTask = {
                 definition: '',
                 explanation: ''
@@ -34,7 +34,7 @@ let TaskCreateComponent = {
 
         createTask(task) {
             if(task.definition){
-                this.TasksModel.createTask(task);
+                this.TaskListService.createTask(task);
                 this.returnTaskList();
             }else {
                 this.returnTaskList();

@@ -4643,8 +4643,8 @@ angular.module('ui.router.state')
   .directive('uiState', $StateRefDynamicDirective);
 
 /**
- * @ngdoc filter
- * @name ui.router.state.filter:isState
+ * @ngdoc order
+ * @name ui.router.state.order:isState
  *
  * @requires ui.router.state.$state
  *
@@ -4661,8 +4661,8 @@ function $IsStateFilter($state) {
 }
 
 /**
- * @ngdoc filter
- * @name ui.router.state.filter:includedByState
+ * @ngdoc order
+ * @name ui.router.state.order:includedByState
  *
  * @requires ui.router.state.$state
  *

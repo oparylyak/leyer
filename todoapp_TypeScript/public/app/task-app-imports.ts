@@ -8,20 +8,20 @@ import 'lodash';
 import './task-app';
 
 //core
-import './core/task-list.model';
+import './core/task-list.service';
 import './core/checkmark.filter'
 
 //taskList
-import "./taskList/task-list-component";
-import "./taskList/create/task-create-component";
-import "./taskList/header/search/task-list-search-component";
-import "./taskList/header/navbar/task-list-navbar-component";
-import "./taskList/header/filter/task-list-filter-component";
+import "./taskList/task-list.component";
+import "./taskList/create/task-create.component";
+import "./taskList/header/search/task-list-search.component";
+import "./taskList/header/navbar/task-list-navbar.component";
+import "./taskList/header/order/task-list-order.component";
 
 //task
-import "./task/task-component";
-import "./task/header/task-navbar";
-import "./task/edit/task-edit-component";
+import "./task/task.component";
+import "./task/header/task-navbar.component";
+import "./task/edit/task-edit.component";
 
 
 

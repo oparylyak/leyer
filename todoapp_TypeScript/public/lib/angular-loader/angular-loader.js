@@ -489,7 +489,7 @@ function setupModuleLoader(window) {
            * @name angular.Module#filter
            * @module ng
            * @param {string} name Filter name - this must be a valid AngularJS expression identifier
-           * @param {Function} filterFactory Factory function for creating new instance of filter.
+           * @param {Function} filterFactory Factory function for creating new instance of order.
            * @description
            * See {@link ng.$filterProvider#register $filterProvider.register()}.
            *
@@ -629,7 +629,7 @@ setupModuleLoader(window);
  *   factory: function(string, Function):angular.Module,
  *   value: function(string, *):angular.Module,
  *
- *   filter: function(string, Function):angular.Module,
+ *   order: function(string, Function):angular.Module,
  *
  *   init: function(Function):angular.Module
  * } }

@@ -2,17 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf7e1ad-6e81-4086-b722-e43f8738b0a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/taskList/header/order/task-list-order.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/taskList/task-list.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/task-list.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/task-list.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/task/edit/task-edit-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/edit/task-edit-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/task/header/task-navbar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/header/task-navbar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/task/task-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/task-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/create/task-create-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/create/task-create-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/header/filter/task-list-filter-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/filter/task-list-filter-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/header/search/task-list-search-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/search/task-list-search-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/taskList/task-list-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/task-list-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/task-list.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/task-list.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/task-app-imports.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task-app-imports.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/task/edit/task-edit-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/edit/task-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/task/header/task-navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/header/task-navbar.tmpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/task/header/task-navbar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/header/task-navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/task/task-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/task/task.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/create/task-create-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/create/task-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/filter/task-list-filter-component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/filter/task-list-filter-tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/order/task-list-order.tmpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar-tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/navbar/task-list-navbar.tmpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/search/task-list-search-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/search/task-list-search.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/header/search/task-list-search-tmpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/taskList/header/search/task-list-search.tmpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taskList/task-list-component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/angular-loader/angular-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/angular-loader/angular-loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/angular-mocks/angular-mocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/angular-mocks/angular-mocks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/angular-ui-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/angular-ui-router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/angular.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/angular.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/angular/angular.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/angular/angular.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/angular/angular.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/angular/angular.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/jquery-3.4.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/jquery-3.4.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/lodash.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/lodash.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +87,8 @@
       <workItem from="1585390683689" duration="5000" />
       <workItem from="1585556620095" duration="605000" />
       <workItem from="1585644027558" duration="1412000" />
-      <workItem from="1585724574828" duration="15432000" />
+      <workItem from="1585724574828" duration="17252000" />
+      <workItem from="1585807515093" duration="9317000" />
     </task>
     <servers />
   </component>
@@ -84,9 +100,9 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="2419" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1536.824/0.0.1536.824@1920.0.1536.824" timestamp="1585219800728" />
-    <state x="2385" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1585724581806">
+    <state x="2385" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1585807526048">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
-    <state x="2385" y="236" key="com.intellij.ide.util.TipDialog/1920.0.1536.824/0.0.1536.824@1920.0.1536.824" timestamp="1585724581806" />
+    <state x="2385" y="236" key="com.intellij.ide.util.TipDialog/1920.0.1536.824/0.0.1536.824@1920.0.1536.824" timestamp="1585807526048" />
   </component>
 </project>
