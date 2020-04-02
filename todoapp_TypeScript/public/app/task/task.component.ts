@@ -7,7 +7,6 @@ let TaskComponent = {
     templateUrl: 'app/task/task.tmpl.html',
     bindings:{},
     controller: class TaskController {
-
         public task;
 
         private $state;
@@ -71,7 +70,6 @@ let TaskComponent = {
 };
 
 export class ModifyTaskService {
-
     private modTask;
 
     setTask(task) {
@@ -89,17 +87,3 @@ angular
     .component(TaskComponent.selector,TaskComponent)
     .service('ModifyTaskService', ModifyTaskService);
 
-//1 angular
-//     .module('Todo')
-//     .component(TaskComponent.selector,TaskComponent)
-//     .service('ModifyTaskService', function () {
-//         let modTask;
-//
-//         this.setTask = function (task) {
-//             return modTask = task;
-//         }
-//
-//         this.getTask = function () {
-//             return modTask;
-//         }
-//     });

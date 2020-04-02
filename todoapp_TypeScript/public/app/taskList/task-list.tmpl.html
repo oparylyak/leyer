@@ -9,7 +9,7 @@
         <table class="table table-striped">
             <tr ng-class="{'active':isSelectedTask(task._id)}"  ng-repeat="task in $ctrl.tasks  | filter: $ctrl.getQ() | orderBy:$ctrl.getO()" >
                 <td>
-                    <a ui-sref="todo.task({taskId:task._id})" ng-click=""> <span>{{task.definition}}</span></a>
+                    <a ui-sref="task({taskId:task._id})" ng-click=""> <span>{{task.definition}}</span></a>
                 </td>
 <!--                <td>-->
 <!--                    {{task._id}}-->

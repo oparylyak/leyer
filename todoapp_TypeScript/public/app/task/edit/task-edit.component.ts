@@ -1,6 +1,9 @@
 'use strict';
 
 import * as angular from 'angular';
+import { Component, OnInit } from 'angular-ts-decorators';
+import { Task } from '../../task';
+import { TaskListService } from '../../core/task-list.service'
 
 let TaskEditComponent ={
     selector:"taskEdit",
@@ -37,7 +40,7 @@ let TaskEditComponent ={
         }
 
         returnToTask() {
-            this.$state.go('todo.task',{
+            this.$state.go('task',{
                 taskId: this.$stateParams.taskId
             });
         }

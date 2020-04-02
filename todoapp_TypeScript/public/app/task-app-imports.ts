@@ -6,6 +6,8 @@ import 'lodash';
 
 //main
 import './task-app';
+import './task-app-routing.ts';
+import './task';
 
 //core
 import './core/task-list.service';
