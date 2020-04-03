@@ -13,6 +13,7 @@ import {TaskComponent} from "./task/task.component";
 import {ModifyTaskService} from "./task/task.component";
 import {TaskEditComponent} from "./task/edit/task-edit.component";
 import {TaskNavBarComponent} from "./task/header/task-navbar.component";
+import {CheckMarkPipe} from "./core/checkmark.filter";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {TaskNavBarComponent} from "./task/header/task-navbar.component";
         TaskListSearchComponent,
         TaskComponent,
         TaskEditComponent,
-        TaskNavBarComponent
+        TaskNavBarComponent,
+        CheckMarkPipe
     ],
     providers:[
         TaskListService,

@@ -1,7 +1,7 @@
 'use strict';
 
 import * as _ from 'lodash'
-import {IHttpService, IPromise, IQService} from 'angular';
+import {IHttpService, IQService} from 'angular';
 import {Injectable} from "angular-ts-decorators";
 
 @Injectable('taskListService')
@@ -67,8 +67,8 @@ export class TaskListService {
     };
 
     createTask(task) {
-        task.startDate = Date.now();
-        task.endDate = Date.now() + 222222;
+        task.startDate = Date.now() + 3600000 + 60000;//today + one hour + one minute
+        task.endDate = Date.now() + (86400000*3);//today + 3-number of days
         task.resolved = false;
         this.$http.post('/createTask',task).then( (response)=> {
             task = this.extract(response);

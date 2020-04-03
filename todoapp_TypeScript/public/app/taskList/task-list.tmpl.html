@@ -1,31 +1,33 @@
-
 <list-nav-bar></list-nav-bar>
-    <!-- CREATING -->
-    <ui-view></ui-view>
+<!-- CREATING -->
+<ui-view></ui-view>
 <list-search></list-search>
 <list-filter></list-filter>
 
-    <div class="container-fluid">
-        <table class="table table-striped">
-            <tr ng-class="{'active':isSelectedTask(task._id)}"  ng-repeat="task in $ctrl.tasks  | filter: $ctrl.getQ() | orderBy:$ctrl.getO()" >
-                <td>
-                    <a ui-sref="task({taskId:task._id})" ng-click=""> <span>{{task.definition}}</span></a>
-                </td>
-<!--                <td>-->
-<!--                    {{task._id}}-->
-<!--                </td>-->
-                <td>
-                    <span> {{task.endDate| date:'dd/MM/yyyy'}}</span>
-                </td>
-                <td>
-                    <!--            <p>Start: {{task.startDate| date:'dd/MM/yyyy @ h:mma'}}</p>-->
-                    <span class="text-center">{{task.resolved | checkmark }}</span>
-                </td>
-                <td>
-                    <button type="button" class="close" ng-click="$ctrl.deleteTask(task)"><i class="fas fa-times-circle"></i></button>
-                </td>
-            </tr>
+<div class="container-fluid">
+    <table class="table table-striped">
+        <tr ng-class="{'active':isSelectedTask(task._id)}"
+            ng-repeat="task in $ctrl.tasks  | filter: $ctrl.getQ() | orderBy:$ctrl.getO()">
+            <td>
+                <a ui-sref="task({taskId:task._id})" ng-click=""> <span>{{task.definition}}</span></a>
+            </td>
+            <!--                <td>-->
+            <!--                    {{task._id}}-->
+            <!--                </td>-->
+            <td>
+                <span> {{task.endDate| date:'dd/MM/yyyy'}}</span>
+            </td>
+            <td>
+                <p>Start: {{task.startDate| date:'dd/MM/yyyy @ h:mma'}}</p>
+                <p>End: {{task.endDate| date:'dd/MM/yyyy @ h:mma'}}</p>
+                <span class="text-center">{{task.resolved | checkMark }}</span>
+            </td>
+            <td>
+                <button type="button" class="close" ng-click="$ctrl.deleteTask(task)"><i
+                        class="fas fa-times-circle"></i></button>
+            </td>
+        </tr>
 
-        </table>
+    </table>
 
-    </div >
+</div>

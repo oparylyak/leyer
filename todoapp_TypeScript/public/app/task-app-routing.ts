@@ -5,13 +5,15 @@ import {Ng1StateDeclaration} from '@uirouter/angularjs/lib/interface';
 import { getTypeName, NgModule } from 'angular-ts-decorators';
 import {TaskCreateComponent} from "./taskList/create/task-create.component";
 import {TaskListComponent} from "./taskList/task-list.component";
+import {TaskEditComponent} from "./task/edit/task-edit.component";
+import {TaskComponent} from "./task/task.component";
 
 export interface UiState extends Ng1StateDeclaration {
     component?: any;
 }
 
 const routes: UiState[] = [
-    // {name: 'index', url:'', component:TaskListComponent},
+    {name: 'index', url:'', redirectTo:'taskList'},
     {name: 'taskList', url:'/taskList', component:TaskListComponent},
     {name: 'task', url:'/:taskId', component:'task'},
     {name: 'task.edit', url:'/edit', component:'taskEdit'},
@@ -41,37 +43,10 @@ function getNg1StateDeclaration(state: UiState) {
         console.log(9,"State", state.component);
     }
     // else{
-    //     console.log(8,"InCorrect State");
+    //     state.component = 'taskList';
+    //     console.log(8, 1);
     // }
     return state;
 }
 
-//1 angular
-//     .module("TodoRouting",[
-//     "ui.router",
-// ])
-//      .config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider){
-//         $urlRouterProvider.otherwise('/taskList');
-//         $stateProvider
-//             .state('todo', {
-//                 url:'/taskList',
-//                 abstract: true,
-//             })
-//             .state('todo.taskList', {
-//                 url:'',
-//                 component:'taskList',
-//             })
-//             .state('todo.task',{
-//                 url: '/:taskId',
-//                 component:'task',
-//             })
-//             .state('todo.task.edit',{
-//                 url:'/edit',
-//                 component:'taskEdit',
-//             })
-//             .state('todo.taskList.create',{
-//                 url:'/create',
-//                 component:'taskCreate'
-//             })
-//     }]);
 

@@ -11,6 +11,7 @@ import {TaskListService} from '../core/task-list.service'
 
 export class TaskListComponent {
     public tasks;
+    public checkMark;
 
     private TaskListService;
     private SearchOrderService;
@@ -54,8 +55,11 @@ export class TaskListComponent {
 @Injectable('searchOrderService')
 export class SearchOrderService {
 
+    private Newest = 'Date.now() - startDate';
+    private Expired = 'endDate - Date.now()';
+
     private modelQuery;
-    private modelOrderProp = "endDate - Date.now()";
+    private modelOrderProp = this.Newest;//"endDate - Date.now()";
 
     setQuery(query) {
         return this.modelQuery = query;

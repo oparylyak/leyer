@@ -20,7 +20,7 @@
             </td>
             <td>
                 <!--            <p>Start: {{getT().startDate| date:'dd/MM/yyyy @ h:mma'}}</p>-->
-                <span class="text-center">{{$ctrl.getT().resolved | checkmark}}</span>
+                <span class="text-center">{{$ctrl.getT().resolved | checkMark}}</span>
             </td>
             <td ng-if="!$ctrl.getT().resolved">
                 <button type="button" class="btn btn-success" ng-click="$ctrl.checkTask($ctrl.getT())">Resolved</button>
